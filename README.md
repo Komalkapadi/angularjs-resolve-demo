@@ -9,16 +9,16 @@ This means you can wait for data to become available before showing a view, and 
 
 In your custom angular file,
 
-when('/manage/user', {
-        templateUrl: BASEURL + '/resources/views/angular/users.html',
-        controller: 'UserController',
-        title: 'Street Tunes :: Users',
-        resolve: {
-            locationData: function(userfactory) {
-                return userfactory.getLocations();
-            }
-        }
-    })
+        when('/manage/user', {
+                templateUrl: BASEURL + '/resources/views/angular/users.html',
+                controller: 'UserController',
+                title: 'Street Tunes :: Users',
+                resolve: {
+                    locationData: function(userfactory) {
+                        return userfactory.getLocations();
+                    }
+                }
+            })
 
 In factory for get method,
 
