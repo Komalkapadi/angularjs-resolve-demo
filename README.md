@@ -32,7 +32,7 @@ In factory make API call,
             
 In controller file define dependency,
 
-        angular.module('StreetTunesApp').controller('UserController',['$scope','locationData',function($scope,locationData,$log) {
+        angular.module('StreetTunesApp').controller('UserController',['$scope','locationData',function($scope,locationData) {
                 $scope.data = locationData;
                 console.log($scope.data);
         });
