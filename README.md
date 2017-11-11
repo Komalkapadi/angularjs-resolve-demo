@@ -1,7 +1,5 @@
 # angularjs-resolve-demo
 
-# angularjs-resolve
-Angular js demo for resolve
 
 A resolve is a property you can attach to a route in both ngRoute and the more robust UI router. 
 A resolve contains one or more promises that must resolve successfully before the route will change.
@@ -10,9 +8,9 @@ This means you can wait for data to become available before showing a view, and 
 In your custom angular file,
 
         when('/manage/user', {
-                templateUrl: BASEURL + '/resources/views/angular/users.html',
+                templateUrl: BASEURL + 'users.html',
                 controller: 'UserController',
-                title: 'Street Tunes :: Users',
+                title: ' Users',
                 resolve: {
                     locationData: function(userfactory) {
                         return userfactory.getLocations();
@@ -20,7 +18,7 @@ In your custom angular file,
                 }
             })
 
-In factory for get method,
+In factory make API call,
 
            getLocations: function() {
                 $('.spinner-loader').show();
@@ -32,18 +30,9 @@ In factory for get method,
                 return promise;
             }
             
-For post method,
+In controller file define dependency,
 
-        blockUnblockUser: function(data) {
-                $('.spinner-loader').show();
-                return $http({
-                    method: 'POST',
-                    data: data,
-                    url: 'blockUnblockUser'
-                }).then(function successCallback(response) {
-                    return response;
-                }, function errorCallback(response) {
-                    return response;
-                });
-                $('.spinner-loader').hide();
-            }
+        angular.module('StreetTunesApp').controller('UserController',['$scope','locationData',function($scope,locationData,$log) {
+                $scope.data = locationData;
+                console.log($scope.data);
+        });
