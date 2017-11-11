@@ -7,7 +7,7 @@ This means you can wait for data to become available before showing a view, and 
 
 In your custom angular file,
 
-        when('/manage/user', {
+        when('/user', {
                 templateUrl: BASEURL + 'users.html',
                 controller: 'UserController',
                 title: ' Users',
@@ -32,7 +32,7 @@ In factory make API call,
             
 In controller file define dependency,
 
-        angular.module('StreetTunesApp').controller('UserController',['$scope','locationData',function($scope,locationData) {
+        angular.module('MyApp').controller('UserController',['$scope','locationData',function($scope,locationData) {
                 $scope.data = locationData;
                 console.log($scope.data);
         });
