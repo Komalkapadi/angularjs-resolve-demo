@@ -1,0 +1,1 @@
+# angularjs-resolve-demo
